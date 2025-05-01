@@ -10,12 +10,13 @@ We study reinforcement learning (RL) post-training for LLaDA, a Large Language D
 This repository, RL4Diffusion_fine_tuning, provides a pipeline for fine-tuning large language diffusion models using reinforcement learning. It adapts the GRPO (Group Relative Policy Optimization) and SEPO (Score Entropy Policy Optimization - https://arxiv.org/abs/2502.01384) fine tuning frameworks for the LLaDA-8B Instruct Large Language Diffusion Model (https://arxiv.org/abs/2502.09992). 
 
 Code Overview:
-1. main_sepo_finetune.py:
-   - Main training scipt initializes models, loads data, computes rewards, and updates policies using SEPO
-2. SEPO_LLaDA_wrapper.py:
-    - Wraps LLaDA model to interface with SEPO fine tuning pipeline
-3. reward_functions.py:
-   - Implements reward models for exact match, instruction-following, factual consistency
+1. SEPO
+   - `main_sepo_finetune.py`: Main training scipt initializes models, loads data, computes rewards, and updates policies using SEPO
+   - `SEPO_LLaDA_wrapper.py`: Wraps LLaDA model to interface with SEPO fine tuning pipeline
+   - `reward_functions.py`: Implements reward models for exact match, instruction-following, factual consistency
+3. GRPO
+   - `grpo_train.py`: main training file for GRPO based finetuning for LLaDA.
+   - `RL4Diffusion_fine_tuning/GRPO_fine_tuning/lladacode`: Modified code for LLaDA generation, allowing for batched diffusion unmasking.~5x speedup in GRPO based sampling.
 
 
 # LLaDA-GRPO, LLaDA-SEPO Performance
